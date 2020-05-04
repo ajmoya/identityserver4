@@ -1,4 +1,4 @@
-# Construimos la imagen docker:
+# 0. Construimos la imagen docker:
 <i>docker build -t identityserver4 .</i>
 
 # 1. Publicar la imagen como package en github
