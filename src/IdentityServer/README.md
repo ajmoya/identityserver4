@@ -1,7 +1,7 @@
 # Construimos la imagen docker:
 <i>docker build -t identityserver4 .</i>
 
-# Publicar la imagen como package en github
+# 1. Publicar la imagen como package en github
 <i>docker login docker.pkg.github.com --username ajmoya</i>
 
 # Obtener un access token personal desde settings developer en github con los scopes read:packages y write:packages
@@ -24,9 +24,9 @@ cat accessToken.txt | docker login docker.pkg.github.com -u ajmoya --password-st
 # Para nuestro caso:
 <i>docker push docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
+<br/><br/>
 
-
-# Para consumir la imagen docker ya publicada en github, primero debemos extraerla desde el registry de github:
+# 2. Para consumir la imagen docker ya publicada en github, primero debemos extraerla desde el registry de github:
 <i>docker pull docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
 # Y ya podemos ejecutarla:
