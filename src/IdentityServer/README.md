@@ -9,8 +9,8 @@ docker login docker.pkg.github.com --username ajmoya
 
 
 # Establecer el access token cuando solicite la password
-echo <accessToken> > accessToken
-cat accessToken | docker login docker.pkg.github.com -u ajmoya --password-stdin
+echo <accessToken> > accessToken.txt
+cat accessToken.txt | docker login docker.pkg.github.com -u ajmoya --password-stdin
 
 # Ahora hay que crear un tag target_image que referencie a la imagen que se quiere subir a github
 docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
