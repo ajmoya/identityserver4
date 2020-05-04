@@ -5,12 +5,12 @@ docker build -t identityserver4 .
 docker login docker.pkg.github.com --username ajmoya
 
 # Obtener un access token personal desde settings developer en github con los siguientes scopes:
-# read:packages y write:packages
+<i>read:packages y write:packages</i>
 
 
 # Establecer el access token cuando solicite la password
-echo <accessToken> > accessToken
-cat accessToken | docker login docker.pkg.github.com -u ajmoya --password-stdin
+echo <accessToken> > accessToken.txt
+cat accessToken.txt | docker login docker.pkg.github.com -u ajmoya --password-stdin
 
 # Ahora hay que crear un tag target_image que referencie a la imagen que se quiere subir a github
 docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
