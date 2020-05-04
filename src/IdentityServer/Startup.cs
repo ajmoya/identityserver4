@@ -51,7 +51,7 @@ namespace IdentityServer
                 //.AddInMemoryIdentityResources(Config.Ids)
                 //.AddInMemoryApiResources(Config.Apis)
                 //.AddInMemoryClients(Config.Clients)
-                //.AddTestUsers(TestUsers.Users)
+                //.AddTestUsers(Config.Users);
 
                 .AddConfigurationStore(options => options.ConfigureDbContext = OptionsBuilder)
                 .AddOperationalStore(options => options.ConfigureDbContext = OptionsBuilder)

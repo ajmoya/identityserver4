@@ -14,7 +14,7 @@ namespace Client
                 {
                     Address = disco.TokenEndpoint,
                     ClientId = "cliente_iya",
-                    ClientSecret = "123654"
+                    ClientSecret = "123456"
                 }));
 
             Console.WriteLine(resultado);
@@ -27,7 +27,7 @@ namespace Client
                 {
                     Address = disco.TokenEndpoint,
                     ClientId = clientId,
-                    ClientSecret = "123654",
+                    ClientSecret = "123456",
                     UserName = "bob",
                     Password = "bob"
                 });
@@ -49,7 +49,7 @@ namespace Client
                 var disco = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
                 {
                     Policy = new DiscoveryPolicy { RequireHttps = false },
-                    Address = "http://kronos:5010"
+                    Address = "http://localhost:5010"
                 });
 
                 if (disco.IsError)

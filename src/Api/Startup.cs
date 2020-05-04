@@ -15,7 +15,7 @@ namespace Api
                 .AddIdentityServerAuthentication(options =>
                 {
                     // Url del servidor de autorización (identityserver4)
-                    options.Authority = "http://kronos:5010";
+                    options.Authority = "http://localhost:5010";
                     options.RequireHttpsMetadata = false;
 
                     // nombre del ApiResource
