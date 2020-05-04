@@ -1,35 +1,36 @@
 # Construimos la imagen docker:
-docker build -t identityserver4 .
+<i>docker build -t identityserver4 .</i>
 
 # Publicar la imagen como package en github
-docker login docker.pkg.github.com --username ajmoya
+<i>docker login docker.pkg.github.com --username ajmoya</i>
 
-# Obtener un access token personal desde settings developer en github con los siguientes scopes:
-<i>read:packages y write:packages</i>
+# Obtener un access token personal desde settings developer en github con los scopes read:packages y write:packages
 
 
 # Establecer el access token cuando solicite la password
-echo <accessToken> > accessToken.txt
-cat accessToken.txt | docker login docker.pkg.github.com -u ajmoya --password-stdin
+<i>echo <accessToken> > accessToken.txt
+  
+cat accessToken.txt | docker login docker.pkg.github.com -u ajmoya --password-stdin</i>
 
 # Ahora hay que crear un tag target_image que referencie a la imagen que se quiere subir a github
-docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+<i>docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION</i>
 
 # P.e, si la imagen identityserver4 tiene de ID ee769bfb6b11 y nuestro repo en github es labs-identityserver4 y queremos establecer la versión 0.2:
-docker tag ee769bfb6b11 docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0
+<i>docker tag ee769bfb6b11 docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
 # Publish the image to GitHub Packages:
-docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+<i>docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION</i>
 
 # Para nuestro caso:
-docker push docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0
+<i>docker push docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
+
 
 
 # Para consumir la imagen docker ya publicada en github, primero debemos extraerla desde el registry de github:
-docker pull docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0
+<i>docker pull docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
 # Y ya podemos ejecutarla:
-docker run -v C:/dataDocker:/data -p 5010:5010 --name myIdentityServer docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0
+<i>docker run -v C:/dataDocker:/data -p 5010:5010 --name myIdentityServer docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
 # Otra opción, si se quiere usar como imagen base en un fichero Dockerfile:
-FROM docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0
+<i>FROM docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
