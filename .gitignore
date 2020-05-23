@@ -1,5 +1,4 @@
 obj/
 bin/
 .vs/
-**/nlog.config
-/src/IdentityServer/nlog.config
+src/IdentityServer/nlog.config
