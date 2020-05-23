@@ -22,6 +22,7 @@ namespace IdentityServer
         {
             // migration assembly required as DbContext's are in a different assembly
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+            
             string conexion = Configuration.GetConnectionString("Default");
 
             void OptionsBuilder(DbContextOptionsBuilder options) =>

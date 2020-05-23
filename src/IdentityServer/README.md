@@ -28,7 +28,7 @@ cat accessToken.txt | docker login docker.pkg.github.com -u ajmoya --password-st
 <i>docker pull docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
 ### Y ya podemos ejecutarla:
-<i>docker run -v C:/dataDocker:/data -p 5010:5010 --name myIdentityServer docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
+<i>docker run -v C:/labs/identityserver/data:/app/data -v C:/labs/identityserver/logs:/app/logs -p 5010:5010 --name myIdentityServer4 docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>
 
 ### Otra opción, si se quiere usar como imagen base en un fichero Dockerfile:
 <i>FROM docker.pkg.github.com/ajmoya/labs-identityserver4/identityserver4:0.2.0</i>

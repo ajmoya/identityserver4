@@ -3,6 +3,8 @@ WORKDIR /app
 
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
+
+RUN dotnet nuget add source http://repositoriopaquetes.intranet.unatec.es:82/nuget/unatec_interno/ -n Unatec
 RUN dotnet restore
 
 # Copy everything else and build
@@ -14,4 +16,5 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build-env /app/out .
+
 ENTRYPOINT ["dotnet", "IdentityServer.dll", "--environment=dev"]

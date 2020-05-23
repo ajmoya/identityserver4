@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using NLog.Config;
 using NLog.Extensions.Logging;
 
 namespace IdentityServer.Extensiones

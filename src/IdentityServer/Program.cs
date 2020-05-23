@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using IdentityServer.Extensiones;
 using Microsoft.Extensions.Hosting;
+using Unatec.Arquitectura.Comun.Activities.Helpers;
 
 namespace IdentityServer
 {
@@ -10,6 +11,8 @@ namespace IdentityServer
     {
         public static void Main(string[] args)
         {
+            UnatecActivityHelpers.SetupDefaultActivityTracking(0);
+
             try
             {
                 Console.Title = "IdentityServer4";
