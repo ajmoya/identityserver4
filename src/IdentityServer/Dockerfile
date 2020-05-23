@@ -4,8 +4,12 @@ WORKDIR /app
 # Copy csproj and restore as distinct layers
 COPY *.csproj ./
 
-RUN dotnet nuget add source http://repositoriopaquetes.intranet.unatec.es:82/nuget/unatec_interno/ -n Unatec
-RUN dotnet restore
+# Tenemos que instalar en la máquina linux donde correrá IdentityServer4 el certificado self-signed de Unatec
+# para poder hacer un dotnet restore, ya que tenemos packages nuget del repo SSL de Unatec
+COPY cert_unatec.cer /usr/local/share/ca-certificates/cert_unatec.crt
+RUN update-ca-certificates
+
+RUN dotnet nuget add source https://repositoriopaquetes.intranet.unatec.es:83/nuget/unatec_interno/ -n Unatec && dotnet restore
 
 # Copy everything else and build
 COPY . ./

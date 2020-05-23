@@ -1,4 +1,5 @@
 obj/
 bin/
 .vs/
-src/IdentityServer/nlog.config
+nlog.config
+cert_unatec.cer
